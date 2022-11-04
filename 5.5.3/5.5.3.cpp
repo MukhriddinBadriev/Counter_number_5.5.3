@@ -8,11 +8,11 @@ public:
     get_sum(std::vector<int> &_v) {
         v = _v;
     }
-    void operator()() {
+    int operator()() {
         for (int i = 0; i < v.size(); i++) {
             if (v[i] % 3 == 0) { sum += v[i];}
         }
-        std::cout << sum << '\n';
+        return sum;
     }
 private:
     int sum = 0;
@@ -24,11 +24,11 @@ public:
     get_count(std::vector<int>& _v) {
         v = _v;
     }
-    void operator()() {
+    int operator()() {
         for (int i = 0; i < v.size(); i++) {
             if (v[i] % 3 == 0) { ++counter; }
         }
-        std::cout << counter << '\n';
+        return counter;
     }
 private:
     int counter = 0;
@@ -44,9 +44,9 @@ int main()
     }std::cout << "\n";
     
     std::cout << "[OUT]: get_sum() = ";
-    (get_sum(v))();
+    std::cout<<(get_sum(v))()<<'\n';
     
     std::cout << "[OUT]: get_count() = ";
-    (get_count(v))();
+    std::cout<<(get_count(v))()<<'\n';
     return 0;
 }
